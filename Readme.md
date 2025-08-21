@@ -1,6 +1,6 @@
 This program trains a two stream three dimensional convolutional neural network for sign language recognition starting from random weights. One stream processes RGB frames while the other stream processes classical optical flow computed from the same frames. The model averages the two sets of logits to make a final prediction. No pretrained components or learned optical flow networks are used.
 
-The script imports NumPy, Pandas, PyTorch, OpenCV, and tqdm for progress bars. It attempts to import matplotlib for plotting and sets the plotting handle to None if it is not available so that training still proceeds. It also attempts to import decord for faster video reading and sets a flag that enables a fall back to OpenCV reading when decord is not present.
+The script imports NumPy, Pandas, PyTorch, OpenCV, and tqdm for progress bars. It attempts to import matplotlib for plotting and sets the plotting handle to None if it is not available so that training still proceeds. It also attempts to import decord for faster video reading and sets a flag that enables a fall back to OpenCV reading when decord is not present.(This is because my computer is not that strong enough so I had to carefully manage my vram and cpu power). 
 
 To keep training stable on shared machines the code limits the number of threads used by common math libraries through environment variables. It also disables OpenCV internal threading and OpenCL where possible. These small steps reduce oversubscription and make performance more predictable.
 
