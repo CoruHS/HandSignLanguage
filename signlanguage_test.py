@@ -521,7 +521,7 @@ def main():
     test_ld = DataLoader(test_ds, batch_size=args.batch_size, shuffle=False,
                          num_workers=args.workers, pin_memory=(device.type == 'cuda'))
 
-    out_csv = OUT_DIR / "submission.csv"
+    out_csv = OUT_DIR / "predictions.csv"
     predict_submission(model, test_ld, out_csv, device)
     print(f"[inference] wrote {out_csv}")
 
